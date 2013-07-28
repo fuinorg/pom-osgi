@@ -78,16 +78,4 @@
         
     </build>
 
-    <repositories>
-
-		<!-- Fallback for OSGI 3rd party libraries not available on Maven Central -->
-        <repository>
-            <id>P2 fuin.org</id>
-            <layout>p2</layout>
-            <url>http://www.fuin.org/p2-repository/libraries</url>
-        </repository>
-    
-    </repositories>
-
-
 </project>
