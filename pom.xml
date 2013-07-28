@@ -1,0 +1,93 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.fuin</groupId>
+        <artifactId>pom</artifactId>
+        <version>1.0.6</version>
+    </parent>
+
+    <artifactId>pom-osgi</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0.0</version>
+    <name>Base POM for OSGI fuin.org projects</name>
+    <url>https://github.com/fuinorg/pom-osgi/</url>
+    <description>Provides standard settings for OSGI http://www.fuin.org/ projects.</description>
+
+    <scm>
+        <url>https://github.com/fuinorg/pom-osgi/</url>
+        <connection>scm:git:git://github.com/fuinorg/pom-osgi.git</connection>
+        <developerConnection>scm:git:git@github.com:fuinorg/pom-osgi.git</developerConnection>
+    </scm>
+
+    <issueManagement>
+        <system>GitHub Issues</system>
+        <url>https://github.com/fuinorg/pom-osgi/issues</url>
+    </issueManagement>
+
+    <properties>
+        <tycho-version>0.15.0</tycho-version>
+        <manifest-location>META-INF</manifest-location>
+    </properties>
+
+    <build>
+
+        <plugins>
+
+            <!-- Create MANIFEST.MF file from the Maven dependencies -->
+            <plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
+                <version>2.4.0</version>
+                <configuration>
+                    <manifestLocation>${manifest-location}</manifestLocation>
+                    <instructions>
+                        <_removeheaders>
+                            Built-By,Tool,Build-Jdk,Created-By,
+                            Bnd-LastModified, Private-Package
+                        </_removeheaders>
+                    </instructions>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>create-manifest</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>bundle</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!-- Use existing MANIFEST.MF instead of creating a new one -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>2.4</version>
+                <configuration>
+                    <archive>
+                        <manifestFile>${manifest-location}/MANIFEST.MF</manifestFile>
+                    </archive>
+                </configuration>
+
+            </plugin>
+
+        </plugins>
+        
+    </build>
+
+    <repositories>
+
+		<!-- Fallback for OSGI 3rd party libraries not available on Maven Central -->
+        <repository>
+            <id>P2 fuin.org</id>
+            <layout>p2</layout>
+            <url>http://www.fuin.org/p2-repository/libraries</url>
+        </repository>
+    
+    </repositories>
+
+
+</project>
