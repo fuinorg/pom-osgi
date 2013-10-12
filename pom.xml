@@ -6,12 +6,12 @@
     <parent>
         <groupId>org.fuin</groupId>
         <artifactId>pom</artifactId>
-        <version>1.1.0-SNAPSHOT</version>
+        <version>1.1.0</version>
     </parent>
 
     <artifactId>pom-osgi</artifactId>
     <packaging>pom</packaging>
-    <version>1.1.0-SNAPSHOT</version>
+    <version>1.1.0</version>
     <name>Base POM for OSGI fuin.org projects</name>
     <url>https://github.com/fuinorg/pom-osgi/</url>
     <description>Provides standard settings for OSGI http://www.fuin.org/ projects.</description>
