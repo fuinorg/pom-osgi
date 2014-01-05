@@ -11,7 +11,7 @@
 
     <artifactId>pom-osgi</artifactId>
     <packaging>pom</packaging>
-    <version>1.1.0</version>
+    <version>1.1.1</version>
     <name>Base POM for OSGI fuin.org projects</name>
     <url>https://github.com/fuinorg/pom-osgi/</url>
     <description>Provides standard settings for OSGI http://www.fuin.org/ projects.</description>
@@ -65,7 +65,12 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
-                <version>2.4</version>
+                <!--
+                  Explicitly switched JAR plugin back to 2.3.2 because of missing "merge" functionality
+                  in plexus archiver that causes the following error:
+                  "org.codehaus.plexus.archiver.jar.Manifest.merge ... Maven Configuration Problem" 
+                  -->
+                <version>2.3.2</version>
                 <configuration>
                     <archive>
                         <manifestFile>${manifest-location}/MANIFEST.MF</manifestFile>
