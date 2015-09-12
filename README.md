@@ -3,6 +3,8 @@ pom-osgi
 
 Base POM for OSGI http://www.fuin.org/ projects
 
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.fuin/pom-osgi/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.fuin/pom-osgi/)
+
 ###Snapshots
 
 Snapshots can be found on the [OSS Sonatype Snapshots Repository](http://oss.sonatype.org/content/repositories/snapshots/org/fuin "Snapshot Repository"). 
