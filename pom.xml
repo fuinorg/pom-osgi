@@ -6,7 +6,7 @@
     <parent>
         <groupId>org.fuin</groupId>
         <artifactId>pom</artifactId>
-        <version>1.2.0</version>
+        <version>1.3.0</version>
     </parent>
 
     <artifactId>pom-osgi</artifactId>
@@ -28,7 +28,7 @@
     </issueManagement>
 
     <properties>
-        <tycho-version>0.23.1</tycho-version>
+        <tycho-version>0.25.0</tycho-version>
         <manifest-location>META-INF</manifest-location>
     </properties>
 
@@ -40,7 +40,8 @@
             <plugin>
                 <groupId>org.apache.felix</groupId>
                 <artifactId>maven-bundle-plugin</artifactId>
-                <version>2.5.4</version>
+                <version>3.2.0</version>
+                <extensions>true</extensions>
                 <configuration>
                     <manifestLocation>${manifest-location}</manifestLocation>
                     <instructions>
@@ -59,25 +60,6 @@
                         </goals>
                     </execution>
                 </executions>
-            </plugin>
-
-            <!-- Use existing MANIFEST.MF instead of creating a new one -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <!--
-                  Explicitly switched JAR plugin back to 2.3.2 because of missing "merge" functionality
-                  in plexus archiver that causes the following error:
-                  "org.codehaus.plexus.archiver.jar.Manifest.merge ... Maven Configuration Problem".
-                  As of 2015/09/12 the problem still exists with JAR version 2.6.  
-                  -->
-                <version>2.3.2</version>
-                <configuration>
-                    <archive>
-                        <manifestFile>${manifest-location}/MANIFEST.MF</manifestFile>
-                    </archive>
-                </configuration>
-
             </plugin>
 
         </plugins>
