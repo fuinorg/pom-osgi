@@ -10,7 +10,6 @@
     </parent>
 
     <artifactId>pom-osgi</artifactId>
-    <version>1.6.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>Base POM for OSGI fuin.org projects</name>
     <url>https://github.com/fuinorg/pom-osgi/</url>
